@@ -153,8 +153,10 @@ body {
 }
 
 main {
-  width: min(1240px, calc(100% - 32px));
+  width: 100%;
+  max-width: 1240px;
   margin: 8px auto 48px;
+  padding: 0 16px;
 }
 
 .page {
