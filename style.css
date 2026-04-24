@@ -152,9 +152,9 @@ body {
   background: linear-gradient(90deg, var(--sky), var(--amber));
 }
 
-body {
-  transform: scale(0.95);
-  transform-origin: top center;
+main {
+  width: min(1240px, calc(100% - 32px));
+  margin: 8px auto 48px;
 }
 
 .page {
