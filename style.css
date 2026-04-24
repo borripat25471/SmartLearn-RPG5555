@@ -153,10 +153,8 @@ body {
 }
 
 main {
-  width: 100%;
-  max-width: 1240px;
+  width: min(1240px, calc(100% - 32px));
   margin: 8px auto 48px;
-  padding: 0 16px;
 }
 
 .page {
@@ -171,6 +169,7 @@ main {
 
 .panel {
   width: 100%;
+  max-width: 100%;
   padding: 34px;
   border-radius: 30px;
   background: var(--bg-panel);
