@@ -152,9 +152,9 @@ body {
   background: linear-gradient(90deg, var(--sky), var(--amber));
 }
 
-main {
-  width: min(1240px, calc(100% - 32px));
-  margin: 8px auto 48px;
+body {
+  transform: scale(0.95);
+  transform-origin: top center;
 }
 
 .page {
@@ -444,14 +444,9 @@ button {
 
 .battle-arena {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) 240px;
   gap: 22px;
-}
-
-@media (min-width: 900px) {
-  .battle-arena {
-    grid-template-columns: 1fr 240px;
-  }
+  align-items: stretch;
 }
 
 .boss-panel {
@@ -893,53 +888,4 @@ body.screen-shake {
   .ghost-btn {
     padding: 13px 16px;
   }
-  html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-body {
-  font-size: 16px;
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  font-size: 16px;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-main {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.battle-arena {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-}
-
-@media (min-width: 900px) {
-  .battle-arena {
-    grid-template-columns: 1fr 240px;
-  }
-}
-.boss-panel {
-  width: 100%;
-  max-width: 100%;
-}
-.boss-panel {
-  width: 100%;
-  max-width: 100%;
-}
 }
