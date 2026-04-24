@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLearn RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Adventure Learning</p>
+      <h1>SmartLearn RPG</h1>
+    </div>
+
+    <div class="hud">
+      <div class="hud-card">
+        <span class="hud-label">Level</span>
+        <strong id="level">1</strong>
+      </div>
+
+      <div class="hud-card xp-card">
+        <div class="xp-head">
+          <span class="hud-label">XP</span>
+          <strong><span id="xp">0</span>/100</strong>
+        </div>
+        <div class="xp-bar">
+          <div id="xpFill" class="xp-fill"></div>
+        </div>
+      </div>
+
+      <div class="hud-card">
+        <span class="hud-label">Combo</span>
+        <strong id="combo">x0</strong>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="panel">
+        <h1 class="title">World Map</h1>
+        <p class="subtitle map-subtitle">
+          เลือกด่านแล้วออกเดินทาง เก็บ XP และปลดล็อกคำถามยากขึ้นเรื่อย ๆ
+        </p>
+
+        <div class="map">
+          <button class="card stage html-stage" type="button" data-stage="html">
+            <span class="stage-badge">Beginner Zone</span>
+            <h3>HTML Island</h3>
+            <p>เรียนรู้โครงสร้างหน้าเว็บและ tag พื้นฐาน</p>
+            <div class="corner-box">🏝️</div>
+          </button>
+
+          <button class="card stage css-stage" type="button" data-stage="css">
+            <span class="stage-badge">Design Realm</span>
+            <h3>CSS Castle</h3>
+            <p>ฝึกจัดเลย์เอาต์ สี ฟอนต์ และ responsive</p>
+            <div class="corner-box">🎨</div>
+          </button>
+
+          <button class="card stage js-stage" type="button" data-stage="js">
+            <span class="stage-badge">Boss Fight</span>
+            <h3>JS Dungeon</h3>
+            <p>ลุยโจทย์ JavaScript ตั้งแต่ DOM ถึง async</p>
+            <div class="corner-box">⚡</div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="page">
+      <div class="panel narrow">
+        <div class="mission-icon" id="stageIcon">⚔️</div>
+        <h2 id="stageTitle" class="title title-small"></h2>
+        <p id="missionText" class="subtitle"></p>
+
+        <div class="mission-meta">
+          <div class="meta-box">
+            <span>Round</span>
+            <strong>10 Questions</strong>
+          </div>
+          <div class="meta-box">
+            <span>Lose Condition</span>
+            <strong>Wrong 3 Times</strong>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary-btn" id="battleBtn">Start Battle</button>
+          <button type="button" class="ghost-btn" data-page="home">Back Map</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="panel quiz-panel">
+        <div class="battle-top">
+          <div>
+            <p class="eyebrow">Battle Mode</p>
+            <h2 id="battleStageName">Stage</h2>
+          </div>
+
+          <div class="battle-stats">
+            <div class="battle-chip">
+              <span>Question</span>
+              <strong id="progressText">1/10</strong>
+            </div>
+            <div class="battle-chip danger">
+              <span>Lives</span>
+              <strong id="livesText">3</strong>
+            </div>
+            <div class="battle-chip gold">
+              <span>Score</span>
+              <strong id="scoreText">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-toolbar">
+          <button type="button" class="ghost-btn quiz-back-btn" data-page="home">Back Map</button>
+        </div>
+
+        <div class="progress-line">
+          <div id="roundFill" class="round-fill"></div>
+        </div>
+
+        <div class="battle-arena">
+          <div class="question-card" id="questionCard">
+            <p class="question-label" id="difficultyText">Lv.1 Challenge</p>
+            <h3 id="question">คำถามจะขึ้นตรงนี้</h3>
+            <div id="answers" class="answers"></div>
+          </div>
+
+          <aside class="boss-panel" id="bossPanel" aria-live="polite">
+            <p class="boss-label">Stage Boss</p>
+            <div class="boss-sprite" id="bossSprite">
+              <div class="boss-face">😈</div>
+              <div class="boss-hp">
+                <div id="bossHpFill" class="boss-hp-fill"></div>
+              </div>
+            </div>
+            <p class="boss-status" id="bossStatus">Boss is waiting...</p>
+          </aside>
+        </div>
+
+        <div class="feedback-bar">
+          <div id="feedbackText" class="feedback-text">พร้อมลุยแล้ว เลือกคำตอบได้เลย</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <div id="resultOverlay" class="overlay hidden">
+    <div class="overlay-card">
+      <p class="eyebrow" id="resultEyebrow">Battle Result</p>
+      <h2 id="resultTitle">BOSS CLEAR!</h2>
+      <p id="resultRank" class="result-rank">S RANK</p>
+
+      <div class="result-grid">
+        <div class="result-box">
+          <span>Score</span>
+          <strong id="resultScore">0/10</strong>
+        </div>
+        <div class="result-box">
+          <span>Wrong</span>
+          <strong id="resultWrong">0/3</strong>
+        </div>
+        <div class="result-box">
+          <span>Stage</span>
+          <strong id="resultStage">HTML Island</strong>
+        </div>
+        <div class="result-box">
+          <span>Next Reset</span>
+          <strong id="resultLeft">0</strong>
+        </div>
+      </div>
+
+      <div class="actions center-actions">
+        <button type="button" class="primary-btn" id="retryBtn">Retry Boss</button>
+        <button type="button" class="ghost-btn" data-page="home">Back Map</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
