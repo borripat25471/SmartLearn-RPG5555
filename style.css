@@ -904,4 +904,42 @@ body.screen-shake {
 body {
   font-size: 16px;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.battle-arena {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+@media (min-width: 900px) {
+  .battle-arena {
+    grid-template-columns: 1fr 240px;
+  }
+}
+.boss-panel {
+  width: 100%;
+  max-width: 100%;
+}
+.boss-panel {
+  width: 100%;
+  max-width: 100%;
+}
 }
