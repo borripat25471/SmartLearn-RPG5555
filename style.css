@@ -444,9 +444,14 @@ button {
 
 .battle-arena {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: 1fr;
   gap: 22px;
-  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .battle-arena {
+    grid-template-columns: 1fr 240px;
+  }
 }
 
 .boss-panel {
@@ -888,4 +893,15 @@ body.screen-shake {
   .ghost-btn {
     padding: 13px 16px;
   }
+  html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+body {
+  font-size: 16px;
+}
 }
