@@ -241,7 +241,7 @@ function updateBattleHud() {
 
 function updateBossHud() {
   const totalSteps = quiz.length || QUESTIONS_PER_ROUND;
-  const bossHealth = Math.max(0, 100 - (currentIndex / totalSteps) * 100);
+  const bossHealth = Math.max(0, 100 - (score/ totalSteps) * 100);
   bossHpFill.style.width = `${bossHealth}%`;
 
   if (wrong >= MAX_WRONG - 1) {
